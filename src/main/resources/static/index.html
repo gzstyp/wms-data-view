@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>省级应急物资网格化管理</title>
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/grid-manager.css"/>
+	</head>
+	<body>
+		<div class="div_top">
+			<div style="vertical-align: middle;text-align:center;padding-top:26px;color: #fff;">
+				<div>
+					<div id="div_top_left">
+						<div id="time">2020-05-22 25:44</div>
+						<div id="weather">24℃</div>
+					</div>
+				</div>
+				<center style="font-size:24px;">省级应急物资图形化管理</center>
+			</div>
+		</div>
+		<div id="content">
+			<div id="content_left">
+				<ul>
+                    <li><button class="btn btn-primary">一楼一层</button></li>
+                    <li><button class="btn btn-default">一楼二层</button></li>
+                    <li><button class="btn btn-default">二楼一层</button></li>
+                    <li><button class="btn btn-default">二楼二层</button></li>
+                    <li><button class="btn btn-default" id="btn_jq">三楼一层</button></li>
+                    <li><button class="btn btn-default" id="btn_jq2">三楼二层</button></li>
+                </ul>
+			</div>
+			<div id="content_right">
+                <img src="img/bg_content_right.png" width="1496" height="568" usemap="#Map">
+                <map name="Map" id="Map">
+                    <area shape="rect" id="237,102,307,125" coords="237,102,307,125" title="办公区" href="javascript:alert('办公区');" />
+                    <area shape="rect" coords="211,149,304,240" title="物资展览区" href="javascript:alert('物资展览区');" />
+                    <area shape="rect" coords="212,331,304,422" title="充电区" href="javascript:alert('充电区');" />
+                    <area shape="rect" coords="375,137,393,152" title="货位信息1" href="javascript:alert('货位信息1');" />
+                    <area shape="rect" coords="392,138,409,151" title="货位信息2" href="javascript:alert('货位信息2');" />
+                    <area shape="rect" coords="223,439,278,464" title="电梯" href="javascript:alert('电梯');" />
+                    <area shape="poly" coords="323,87,324,257,210,257,210,310,1365,312,1367,257,1278,257,1277,86,1249,89,1249,252,844,256,844,87,816,87,816,255,353,257,352,84" title="过道" href="javascript:alert('过道');" />
+                </map>
+			</div>
+		</div>
+		<div id="footer">
+            <div>
+                <div class="div-inline" id="materials_statistics">
+                    <div>
+                        <div class="chunk"></div>
+                        <span class="chk-span">物资统计</span>
+                    </div>
+                    <div>
+                    </div>
+                    <table style="border-collapse:separate; border-spacing:0px 8px;">
+                        <tr>
+                            <td style="width:180px;padding-left:6px;">折叠类</td>
+                            <td>
+                                <div class="progress-part" style="margin-top:-10px;margin-left:6px;">
+                                    <span class="progress-part-first">0-5</span>
+                                    <span class="progress-part-second">6-10</span>
+                                    <span class="progress-part-third">>10</span>
+                                    <span id="wz_zd" class="progress-above"></span>
+                                </div>
+                            </td>
+                            <td style="position:relative;left:340px;">53件</td>
+                        </tr>
+                        <tr>
+                            <td style="width:180px;padding-left:6px;">服装类</td>
+                            <td>
+                                <div class="progress-part" style="margin-top:-10px;margin-left:6px;">
+                                    <span class="progress-part-first">0-5</span>
+                                    <span class="progress-part-second">6-10</span>
+                                    <span class="progress-part-third">>10</span>
+                                    <span id="wz_fz" class="progress-above"></span>
+                                </div>
+                            </td>
+                            <td style="position:relative;left:340px;">95件</td>
+                        </tr>
+                        <tr>
+                            <td style="width:180px;padding-left:6px;">帐篷类</td>
+                            <td>
+                                <div class="progress-part" style="margin-top:-10px;margin-left:6px;">
+                                    <span class="progress-part-first">0-5</span>
+                                    <span class="progress-part-second">6-10</span>
+                                    <span class="progress-part-third">>10</span>
+                                    <span id="wz_zp" class="progress-above"></span>
+                                </div>
+                            </td>
+                            <td style="position:relative;left:340px;">26件</td>
+                        </tr>
+                        <tr>
+                            <td style="width:180px;padding-left:6px;">工作灯类</td>
+                            <td>
+                                <div class="progress-part" style="margin-top:-10px;margin-left:6px;">
+                                    <span class="progress-part-first">0-5</span>
+                                    <span class="progress-part-second">6-10</span>
+                                    <span class="progress-part-third">>10</span>
+                                    <span id="wz_gzd" class="progress-above"></span>
+                                </div>
+                            </td>
+                            <td style="position:relative;left:340px;">52件</td>
+                        </tr>
+                        <tr>
+                            <td style="width:180px;padding-left:6px;">发电机类</td>
+                            <td>
+                                <div class="progress-part" style="margin-top:-10px;margin-left:6px;">
+                                    <span class="progress-part-first">0-5</span>
+                                    <span class="progress-part-second">6-10</span>
+                                    <span class="progress-part-third">>10</span>
+                                    <span id="wz_fdj" class="progress-above"></span>
+                                </div>
+                            </td>
+                            <td style="position:relative;left:340px;">180件</td>
+                        </tr>
+                        <tr>
+                            <td style="width:180px;padding-left:6px;">应急包类</td>
+                            <td>
+                                <div class="progress-part" style="margin-top:-10px;margin-left:6px;">
+                                    <span class="progress-part-first">0-5</span>
+                                    <span class="progress-part-second">6-10</span>
+                                    <span class="progress-part-third">>10</span>
+                                    <span id="wz_yjb" class="progress-above"></span>
+                                </div>
+                            </td>
+                            <td style="position:relative;left:340px;">300件</td>
+                        </tr>
+                    </table>
+                    <div style="width:100%;text-align:center;">
+                        <span style="background:#d9534f;display:inline-flex;height:10px;width:10px;margin-right:6px;"></span>危险
+                        <span style="background:#f0ad4e;display:inline-flex;height:10px;width:10px;margin-right:6px;"></span>警戒
+                        <span style="background:#5cb85c;display:inline-flex;height:10px;width:10px;margin-right:6px;"></span>安全
+                    </div>
+                </div>
+                <div class="div-inline" id="materials_list">
+                    <table id="table_materials">
+                        <thead>
+                            <tr>
+                                <td style="width:180px;height:30px;">物资名称</td>
+                                <td style="width:160px;height:30px;">物资编号</td>
+                                <td style="width:76px;height:30px;">库存数量</td>
+                                <td style="width:76px;height:30px;">出库数量</td>
+                                <td style="width:120px;height:30px;">预计出库时间</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td colspan="5" align="center" valign="middle" style="height:30px;vertical-align:center;">暂无物资</td>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="div-inline supervisory" id="monitor">
+                    <div>
+                        <div class="chunk"></div>
+                        <span class="chk-span">温湿度监控A区</span>
+                    </div>
+                    <table style="border-collapse:separate; border-spacing:0px 30px;">
+                        <tr>
+                            <td style="width:135px;padding-left:6px;font-size:16px;">湿度：64%</td>
+                            <td style="left:100px;font-size:16px;">风机转数：1500转/min</td>
+                        </tr>
+                        <tr>
+                            <td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(内):28℃</td>
+                            <td style="left:100px;font-size:16px;color:#33cc33;">温度(内):28℃</td>
+                        </tr>
+                        <tr>
+                            <td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(外):32℃ </td>
+                            <td style="left:100px;font-size:16px;color:#33cc33;">温度(外):32℃</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="div-inline supervisory">
+                    <div>
+                        <div class="chunk"></div>
+                        <span class="chk-span">温湿度监控B区</span>
+                    </div>
+                    <table style="border-collapse:separate; border-spacing:0px 30px;">
+                        <tr>
+                            <td style="width:135px;padding-left:6px;font-size:16px;">湿度：64%</td>
+                            <td style="left:100px;font-size:16px;">风机转数：1500转/min</td>
+                        </tr>
+                        <tr>
+                            <td style="width:135px;padding-left:6px;font-size:16px;">温度(内):28℃</td>
+                            <td style="left:100px;font-size:16px;">温度(内):28℃</td>
+                        </tr>
+                        <tr>
+                            <td style="width:135px;padding-left:6px;font-size:16px;">温度(外):32℃ </td>
+                            <td style="left:100px;font-size:16px;">温度(外):32℃</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+		</div>
+		<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="/layer/layer.js"></script>
+        <script type="text/javascript" src="/js/page.layer.js"></script>
+		<script type="text/javascript" src="/js/grid-manager.js"></script>
+		<script type="text/javascript">
+
+            $(function () {
+                var shan;
+                var flag = 0;
+                function shanke(){
+                    if (flag < 4) {
+                        $("button#btn_jq").toggleClass("btn-red2");
+                        flag++;
+                    }else{
+                        clearInterval(shan);
+                    };
+                }
+                $("button#btn_jq").click(function(){
+                    flag = 0;
+                    shan = setInterval(shanke,200);
+                    $('#btn_jq2').flash('255,0,0',100000);
+                    //$("[coords='237,102,307,125']").attr('title','我是中国人');//好使,能改变值
+                });
+
+                jQuery.fn.flash = function(color,duration){
+                    var current = this.css('color');
+                    this.animate( {color:'rgb(' + color + ')' }, duration / 2);
+                    this.animate( {color:current}, duration / 2 );
+                };
+            });
+
+        </script>
+	</body>
+</html>
