@@ -353,6 +353,11 @@
                         "id":"ffffffffe56e8ef0ffffffff912af74a",
                         "floor_name" : "二楼一层",
                         "img_url" : "/img/ffffffffe56e8ef0ffffffff912af743.png"
+                    },
+                    {
+                        "id":"ffffffffe56e8ef0ffffffff912af744",
+                        "floor_name" : "二楼二层",
+                        "img_url" : "/img/ffffffffe56e8ef0ffffffff912af744.png"
                     }
                 ];
                 var html = '';
