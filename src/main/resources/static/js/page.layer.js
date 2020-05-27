@@ -30,16 +30,16 @@ function ajaxGet(url,params,succeed,failure){
         }
     });
 }
-function result(content,time){
+function topHint(content,time){
     time = (time == null || time.length <= 0) ? -1 : time;
-    layer.open({
-        title : '系统提示',
+    return layer.open({
+        title : false,
+        closeBtn : 0,
         content : content,//此处可以是任意代码
         shade : 0,
-        offset : 'rb',
-        anim : 2,
-        btn:false,
-        time:time
+        offset : 't',
+        btn : false,
+        time : time
     });
 }
 /**alert('好的,谢谢!',function(){alert('嗯,再见!')})*/

@@ -24,16 +24,18 @@
 				<ul id="floor_li"></ul>
 			</div>
 			<div id="content_right">
-                <img id="img_map" width="1496" height="568" usemap="#Map">
-                <map name="Map" id="Map">
-                    <area shape="rect" id="237,102,307,125" coords="237,102,307,125" title="办公区" href="javascript:alert('办公区');" />
-                    <area shape="rect" coords="211,149,304,240" title="物资展览区" href="javascript:alert('物资展览区');" />
-                    <area shape="rect" coords="212,331,304,422" title="充电区" href="javascript:alert('充电区');" />
-                    <area shape="rect" coords="375,137,393,152" title="货位信息1" href="javascript:alert('货位信息1');" />
-                    <area shape="rect" coords="392,138,409,151" title="货位信息2" href="javascript:alert('货位信息2');" />
-                    <area shape="rect" coords="223,439,278,464" title="电梯" href="javascript:alert('电梯');" />
-                    <area shape="poly" coords="323,87,324,257,210,257,210,310,1365,312,1367,257,1278,257,1277,86,1249,89,1249,252,844,256,844,87,816,87,816,255,353,257,352,84" title="过道" href="javascript:alert('过道');" />
-                </map>
+                <div style="margin-left:290px;">
+                    <img id="img_map" width="1496" height="568" usemap="#Map" class="imageMap">
+                    <map name="Map" id="Map">
+                        <area shape="rect" onclick="values(this)" href="javascript:;" rel="办公区" coords="237,102,307,125"/>
+                        <area shape="rect" onclick="values(this)" href="javascript:;" rel="物资展览区" coords="211,149,304,240"/>
+                        <area shape="rect" onclick="values(this)" href="javascript:;" rel="充电区" coords="212,331,304,422"/>
+                        <area shape="rect" onclick="values(this)" href="javascript:;" rel="货位信息1" coords="375,137,393,152"/>
+                        <area shape="rect" onclick="values(this)" href="javascript:;" rel="货位信息2" coords="392,138,409,151"/>
+                        <area shape="rect" onclick="values(this)" href="javascript:;" rel="电梯" coords="223,439,278,464"/>
+                        <area shape="poly" onclick="values(this)" href="javascript:;" rel="过道" coords="323,87,324,257,210,257,210,310,1365,312,1367,257,1278,257,1277,86,1249,89,1249,252,844,256,844,87,816,87,816,255,353,257,352,84" />
+                    </map>
+                </div>
 			</div>
 		</div>
 		<div id="footer">
@@ -80,35 +82,60 @@
             </div>
 		</div>
 		<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.maphilight.min.js"></script>
         <script type="text/javascript" src="/layer/layer.js"></script>
         <script type="text/javascript" src="/js/page.layer.js"></script>
 		<script type="text/javascript" src="/js/grid-manager.js"></script>
 		<script type="text/javascript">
 
-            $(function () {
-                var shan;
-                var flag = 0;
-                function shanke(){
-                    if (flag < 4) {
-                        $("button#btn_jq").toggleClass("btn-red2");
-                        flag++;
-                    }else{
-                        clearInterval(shan);
-                    };
-                }
+            /*$(function () {
                 $("button#btn_jq").click(function(){
-                    flag = 0;
-                    shan = setInterval(shanke,200);
                     $('#btn_jq2').flash('255,0,0',100000);
                     //$("[coords='237,102,307,125']").attr('title','我是中国人');//好使,能改变值
                 });
-                jQuery.fn.flash = function(color,duration){
-                    var current = this.css('color');
-                    this.animate( {color:'rgb(' + color + ')' }, duration / 2);
-                    this.animate( {color:current}, duration / 2 );
-                };
+            });*/
+
+            /*$(document).ready(function(){
+                $("area").each(function(){
+                    var $x=-70;
+                    var $y=-80;
+                    var name=$(this).attr("rel");
+                    $(this).mouseover(function(e){
+                        var dom="<div class='mapDiv'><p><span class='name'></span><span class='num'></span></p></div>";
+                        $("body").append(dom);
+                        $(".name").text(name);
+                        $(".mapDiv").css({
+                            top: (e.pageY + $y)+"px",
+                            left: (e.pageX + $x)+"px"
+                        }).show("fast");
+                    }).mouseout(function(){
+                        $(".mapDiv").remove();
+                    }).mousemove(function(e){
+                        $(".mapDiv").css({
+                            top: (e.pageY + $y)+"px",
+                            left: (e.pageX + $x)+"px"
+                        })
+                    });
+                });
+            });*/
+
+            //
+            $(document).ready(function(){
+                $("area").each(function(){
+                    var name = $(this).attr("rel");
+                    $(this).mouseover(function(e){
+                        self.indexLayer = topHint(name);
+                        //显示
+                    }).mouseout(function(){
+                        //隐藏
+                        layer.close(self.indexLayer);
+                    });
+                });
             });
 
+            function values(obj){
+                alert(obj.rel);
+            }
         </script>
 	</body>
 </html>

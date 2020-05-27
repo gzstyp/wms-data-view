@@ -36,9 +36,6 @@
             clock += minute;
             return clock;
         },
-        changeMap : function(url){
-            console.info(url);
-        },
         methods : {
             goods_list : function(){
                 var data = [
@@ -336,6 +333,10 @@
             },
             changeMap : function(url){
                 $('#img_map').attr("src",url);
+                $('.imageMap').maphilight({
+                    //fillColor: '008800'
+                    fillColor: 'ff0000'
+                });
             },
             floorBindMap : function(){
                 var data = [
