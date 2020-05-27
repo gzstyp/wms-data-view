@@ -1,5 +1,5 @@
 ;(function($){
-	var thisPage = {
+	thisPage = {
 		init:function(){
             this.initDom();
 		},
@@ -8,6 +8,7 @@
             thisPage.methods.getMaterialsList();
             thisPage.methods.statistics();
             thisPage.methods.monitor();
+            thisPage.methods.floorBindMap();
 		},
         getCurrentDate : function(){
             var now = new Date();
@@ -34,6 +35,9 @@
             clock += hour;
             clock += minute;
             return clock;
+        },
+        changeMap : function(url){
+            console.info(url);
         },
         methods : {
             goods_list : function(){
@@ -329,6 +333,40 @@
                     });
                 }
                 $('#monitors').html(html);
+            },
+            changeMap : function(url){
+                $('#img_map').attr("src",url);
+            },
+            floorBindMap : function(){
+                var data = [
+                    {
+                        "id":"ffffffffe56e8ef0ffffffff912af74a",
+                        "floor_name" : "一楼一层",
+                        "img_url" : "/img/ffffffffe56e8ef0ffffffff912af74a.png"
+                    },
+                    {
+                        "id":"ffffffffe56e8ef0ffffffff912af74a",
+                        "floor_name" : "一楼二层",
+                        "img_url" : "/img/ffffffffe56e8ef0ffffffff912af742.png"
+                    },
+                    {
+                        "id":"ffffffffe56e8ef0ffffffff912af74a",
+                        "floor_name" : "二楼一层",
+                        "img_url" : "/img/ffffffffe56e8ef0ffffffff912af743.png"
+                    }
+                ];
+                var html = '';
+                $.each(data,function(index,data){
+                    if(index == 0){
+                        html += '<li><button class="btn btn-primary" onclick="thisPage.methods.changeMap(\''+data.img_url+'\');">'+data.floor_name+'</button></li>';
+                    }else{
+                        html += '<li><button class="btn btn-default" onclick="thisPage.methods.changeMap(\''+data.img_url+'\');">'+data.floor_name+'</button></li>';
+                    }
+                });
+                $('#floor_li').html(html);
+                if(data.length > 0){
+                    thisPage.methods.changeMap(data[0].img_url);
+                }
             }
         }
 	};

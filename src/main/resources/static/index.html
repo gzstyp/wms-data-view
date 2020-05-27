@@ -21,17 +21,10 @@
 		</div>
 		<div id="content">
 			<div id="content_left">
-				<ul>
-                    <li><button class="btn btn-primary">一楼一层</button></li>
-                    <li><button class="btn btn-default">一楼二层</button></li>
-                    <li><button class="btn btn-default">二楼一层</button></li>
-                    <li><button class="btn btn-default">二楼二层</button></li>
-                    <li><button class="btn btn-default" id="btn_jq">三楼一层</button></li>
-                    <li><button class="btn btn-default" id="btn_jq2">三楼二层</button></li>
-                </ul>
+				<ul id="floor_li"></ul>
 			</div>
 			<div id="content_right">
-                <img src="img/bg_content_right.png" width="1496" height="568" usemap="#Map">
+                <img id="img_map" width="1496" height="568" usemap="#Map">
                 <map name="Map" id="Map">
                     <area shape="rect" id="237,102,307,125" coords="237,102,307,125" title="办公区" href="javascript:alert('办公区');" />
                     <area shape="rect" coords="211,149,304,240" title="物资展览区" href="javascript:alert('物资展览区');" />
@@ -109,7 +102,6 @@
                     $('#btn_jq2').flash('255,0,0',100000);
                     //$("[coords='237,102,307,125']").attr('title','我是中国人');//好使,能改变值
                 });
-
                 jQuery.fn.flash = function(color,duration){
                     var current = this.css('color');
                     this.animate( {color:'rgb(' + color + ')' }, duration / 2);
