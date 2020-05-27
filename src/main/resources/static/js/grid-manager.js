@@ -373,6 +373,10 @@
                 if(data.length > 0){
                     thisPage.methods.changeMap(data[0].img_url);
                 }
+                $("#floor_li button").click(function(){
+                    $("#floor_li button").removeClass("btn-primary");
+                    $(this).addClass("btn-primary");
+                });
             }
         }
 	};
