@@ -79,14 +79,20 @@ img,input{
     margin-left:8px;
 }
 #footer #materials_list{
-    width:618px;
+    width:619px;
     height:373px;
     background:#003399;
     margin-left:6px;
 }
-#footer .supervisory{
+#footer .supervisory-right{
     width:320px;
     height:373px;
+    background:#003333;
+    margin-left:6px;
+}
+#footer .supervisory-left{
+    width:310px;
+    height:250px;
     background:#003333;
     margin-left:6px;
 }
@@ -95,11 +101,7 @@ img,input{
 .progress-part-warning{float:left; height: 100%;width: 1%;line-height:20px !important; top: 0;border: none;background-color:#f0ad4e;text-align: center;z-index: 1;}
 .progress-part-security{float:left; height: 100%;width: 1%;line-height:20px !important; top: 0;border: none;background-color:#5cb85c;text-align: center;z-index: 1;}
 .progress-above{float:left;height:56%;width:1%;line-height:20px !important; top:-15px;border: none;background-color:#fff;z-index:1;position:relative;}
-#monitor .normal{
-    width:95px;
-    padding-left:6px;
-    color:#6699cc;
-}
+
 .legend{
     display:inline-flex;
     height:10px;

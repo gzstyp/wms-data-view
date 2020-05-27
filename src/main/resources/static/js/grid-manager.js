@@ -7,6 +7,7 @@
             $('#time').text(this.getCurrentDate());
             thisPage.methods.getMaterialsList();
             thisPage.methods.statistics();
+            thisPage.methods.monitor();
 		},
         getCurrentDate : function(){
             var now = new Date();
@@ -180,6 +181,29 @@
                 ];
                 return data;
             },
+            monitorData : function(){
+                var data = [
+                    {
+                        "monitor_name" : "温湿度监控A区",
+                        "humidity" : "66%",
+                        "revolutions" : "1500转/min",
+                        "temperature_indoor1" : "28℃",
+                        "temperature_indoor2" : "26℃",
+                        "temperature_outdoor1" : "32℃",
+                        "temperature_outdoor2" : "32℃"
+                    },
+                    {
+                        "monitor_name" : "温湿度监控B区",
+                        "humidity" : "64%",
+                        "revolutions" : "1500转/min",
+                        "temperature_indoor1" : "26℃",
+                        "temperature_indoor2" : "26℃",
+                        "temperature_outdoor1" : "31℃",
+                        "temperature_outdoor2" : "31.5℃"
+                    }
+                ];
+                return data;
+            },
             statistics : function(){
                 var html = '';
                 var list = thisPage.methods.materialsData();
@@ -200,10 +224,111 @@
                 $('#table_statistics').html(html);//渲染页面
                 thisPage.methods.initProgress();//初始化进度条
                 $.each(list,function(index,data){
-                    console.info(data.id);
-                    console.info(data.percentage);
                     thisPage.methods.location("#"+data.id,data.percentage);
                 });
+            },
+            //温度监控,当监控的数量大于2或小于2时需要注意 float:right 的值
+            monitor : function(){
+                var html = '';
+                var list = thisPage.methods.monitorData();
+                if(list.length === 1){
+                    $.each(list,function(index,data){
+                        html += '<div class="div-inline supervisory-right" style="float:left">';
+                        html += '<div>';
+                        html += '<div class="chunk"></div>';
+                        html += '<span class="chk-span">'+data.monitor_name+'</span>';
+                        html += '</div>';
+                        html += '<table style="border-collapse:separate; border-spacing:0px 30px;">';
+                        html += '<tr>';
+                        html += '<td style="width:135px;padding-left:6px;font-size:16px;">湿度：'+data.humidity+'</td>';
+                        html += '<td style="left:100px;font-size:16px;">风机转数：'+data.revolutions+'</td>';
+                        html += '</tr>';
+                        html += '<tr>';
+                        html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor1+'</td>';
+                        html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor2+'</td>';
+                        html += '</tr>';
+                        html += '<tr>';
+                        html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor1+'</td>';
+                        html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor2+'</td>';
+                        html += '</tr>';
+                        html += '</table>';
+                        html += '</div>';
+                    });
+                }else if(list.length === 2){
+                    $.each(list,function(index,data){
+                        html += '<div class="div-inline supervisory-right" style="float:right">';
+                        html += '<div>';
+                        html += '<div class="chunk"></div>';
+                        html += '<span class="chk-span">'+data.monitor_name+'</span>';
+                        html += '</div>';
+                        html += '<table style="border-collapse:separate; border-spacing:0px 30px;">';
+                        html += '<tr>';
+                        html += '<td style="width:135px;padding-left:6px;font-size:16px;">湿度：'+data.humidity+'</td>';
+                        html += '<td style="left:100px;font-size:16px;">风机转数：'+data.revolutions+'</td>';
+                        html += '</tr>';
+                        html += '<tr>';
+                        html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor1+'</td>';
+                        html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor2+'</td>';
+                        html += '</tr>';
+                        html += '<tr>';
+                        html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor1+'</td>';
+                        html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor2+'</td>';
+                        html += '</tr>';
+                        html += '</table>';
+                        html += '</div>';
+                    });
+                }else if(list.length > 2){
+                    //前两个是 float:right，剩余后都是 float:left,且宽高度都要重新定义
+                    $.each(list,function(index,data){
+                        if(index <= 1){
+                            html += '<div class="div-inline supervisory-right" style="float:right">';
+                            html += '<div>';
+                            html += '<div class="chunk"></div>';
+                            html += '<span class="chk-span">'+data.monitor_name+'</span>';
+                            html += '</div>';
+                            html += '<table style="border-collapse:separate; border-spacing:0px 30px;">';
+                            html += '<tr>';
+                            html += '<td style="width:135px;padding-left:6px;font-size:16px;">湿度：'+data.humidity+'</td>';
+                            html += '<td style="left:100px;font-size:16px;">风机转数：'+data.revolutions+'</td>';
+                            html += '</tr>';
+                            html += '<tr>';
+                            html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor1+'</td>';
+                            html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor2+'</td>';
+                            html += '</tr>';
+                            html += '<tr>';
+                            html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor1+'</td>';
+                            html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor2+'</td>';
+                            html += '</tr>';
+                            html += '</table>';
+                            html += '</div>';
+                        }
+                    });
+                    $.each(list,function(index,data){
+                        if(index > 1){
+                            html += '<div class="div-inline supervisory-left" style="float:left">';
+                            html += '<div>';
+                            html += '<div class="chunk"></div>';
+                            html += '<span class="chk-span">'+data.monitor_name+'</span>';
+                            html += '</div>';
+                            html += '<table style="border-collapse:separate; border-spacing:0px 30px;">';
+                            html += '<tr>';
+                            html += '<td style="width:135px;padding-left:6px;font-size:16px;">湿度：'+data.humidity+'</td>';
+                            html += '<td style="left:100px;font-size:16px;">风机转数：'+data.revolutions+'</td>';
+                            html += '</tr>';
+                            html += '<tr>';
+                            html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor1+'</td>';
+                            html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(内):'+data.temperature_indoor2+'</td>';
+                            html += '</tr>';
+                            html += '<tr>';
+                            html += '<td style="width:135px;padding-left:6px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor1+'</td>';
+                            html += '<td style="left:100px;font-size:16px;color:#33cc33;">温度(外):'+data.temperature_outdoor2+'</td>';
+                            html += '</tr>';
+                            html += '</table>';
+                            html += '</div>';
+                        }
+                    });
+                }
+                $('#monitors').html(html);
             }
         }
 	};
