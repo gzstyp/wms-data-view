@@ -131,3 +131,23 @@ img,input{
     border-style:solid;
     border-color: #d4181c;
 }
+
+
+.red-point {
+    position: relative;
+}
+.red-point::before {
+    content: " ";
+    border: 8px solid red;
+    /*设置红色*/
+    border-radius: 8px;
+    /*设置圆角*/
+    position: absolute;
+    z-index: 1000;
+    right: 0%;
+    margin-right: -5px;
+    margin-top: -5px;
+    cursor: pointer;
+}
+
+.mapDiv { width:140px; height:61px; padding: 5px; color:#369; background: url('../img/hint.gif') no-repeat; position:absolute; display: none; word-break:break-all; }
